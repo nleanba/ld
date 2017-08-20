@@ -24,7 +24,7 @@ r2hp:fallback r2h:before <header> .
   ];
   r2h:before <rdfTypes>.
   
-  <rdfTypes> a r2h:Matcher ;
+<rdfTypes> a r2h:Matcher ;
   r2h:triplePattern [
     r2h:subject r2h:this;
     r2h:predicate rdf:type;
@@ -61,26 +61,14 @@ r2hp:fallback r2h:before <header> .
     r2h:context zzm:HtmlBody;
     r2h:mustache '''<div id="header">trifid-ld</div>
         {{{:render . r2h:Default}}}<div id="footer">
-            <table align="center" width="30%">
-              <tr>
-                <td colspan="2">Powered by</td>
-              </tr>
-              <tr>
-                <td><a href="http://zazuko.com"><img src="/img/zazuko-logo.png" width="150px"></a></td>
-                <td><a href="http://synapta.it"><img src="/img/synapta-logo.svg" width="150px"></a></td>
-              </tr>
-            </table>
-            <br>
-            Code on <a href="https://github.com/zazukoians/trifid-ld" style="color:white"><b>github</b></a>
+
         </div>'''
   ];
     r2h:template [
         r2h:context zzm:HtmlHead;
         r2h:mustache '''
-            <link rel="stylesheet" href="/css/bootstrap.css" />
-            <link rel="stylesheet" href="/css/custom.css" />
-            <script src="/js/bootstrap.js"</script>
-            <script src="/js/sticky.js"></script>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
             {{{:render . zzm:HtmlTitle}}}
         '''
    ];
@@ -113,19 +101,12 @@ r2hp:fallback r2h:before <header> .
         var predicatesArray = [];
         var blankBack = [];
         var nodesToRender = [];
-		if (!n.rdf2h.myCounter) {
-			n.rdf2h.myCounter = 0;
-		}
-		console.log("Counter: "+n.rdf2h.myCounter++);
 		if (!n.rdf2h.renderedNodesToId)  {
-			alert("this var should have been initialized");
+			n.rdf2h.renderedNodesToId = new Object();
 		}
-        nodesToRender.push(n.node);
-        //while (nodesToRender.length > 0) {
-           var node = nodesToRender.pop();
-           var s = n.graph.filter(function(t) {return t.subject.equals(node)}).toArray();
-        if ((s.length > 0) && (!n.rdf2h.renderedNodesToId[node.toString()])) {
-		   result +="<hr /><h4> Resource: "+node.toString()+"</h4>";
+        var node = n.node;
+        var s = n.graph.filter(function(t) {return t.subject.equals(node)}).toArray();
+        if (s.length > 0) {
            n.rdf2h.renderedNodesToId[node.toString()] = true;
            if (first > 0) {
                result += '<hr class="baffone">';
@@ -152,8 +133,10 @@ r2hp:fallback r2h:before <header> .
                     predicate = predicateHtml[1];
                 }
             });
-            if ((t.object.interfaceName != "Literal") && (!n.rdf2h.renderedNodesToId[t.object.toString()])) {
+            if ((t.object.interfaceName != "Literal") && (!n.rdf2h.renderedNodesToId[t.object.toString()]) 
+					&& (n.graph.filter(function(gt) {return gt.subject.equals(t.object)}).toArray().length > 0)) {
                 nodesToRender.push(t.object);
+				n.rdf2h.renderedNodesToId[t.object.toString()] = true;
                 if (t.object.interfaceName == "BlankNode") {
                     objectHtml = '<div id="blank' + first + '" class="moving"></div><a onclick=\\'$("#'+t.object+'")[0].scrollIntoView( true );\\'>'+t.object+'</a>';
                     returnObjectLink = '<a onclick=\\'$("#blank' + first + '")[0].scrollIntoView( true );\\'>'+t.object+'</a>';
@@ -178,35 +161,27 @@ r2hp:fallback r2h:before <header> .
             } else {
                 objectHtml = t.object;
             }
-            var isNew = 1;
+            var isNew = true;
             for (var i = 0; i < predicatesArray.length; i++) {
                 if (predicatesArray[i] === predicate) {
-                    isNew = 0;
+                    isNew = false;
                     break;
                 }
             }
             predicatesArray.push(predicate);
-            if (isNew) {
+
                 if (firstDash === 0) {
-                    result = result.substring(0, result.length - 24); //XXX
                     result += '<hr /></td>'
                 }
-                result += '<tr><td width="35%" cellpadding=".1em" valign="top" id="sticky"><a href="'+link+'" title="'+link+'" style="color:#000000;text-decoration:none">'+prefix+'<b>'+predicate+'</b></a></td><td width="65%" cellpadding=".1em">'+objectHtml+'<hr /></td>';
+                result += '<tr><td width="35%" cellpadding=".1em" valign="top" id="sticky"><a href="'+link+'" title="'+link+'" style="color:#000000;text-decoration:none">'+prefix+'<b>'+predicate+'</b></a></td><td width="65%" cellpadding=".1em"><a href="'+objectLink+'" title="'+objectLink+'" style="color:#000000;text-decoration:none">'+objectHtml+'</a><hr /></td>';
                 firstDash = 1;
-            } else {
-                if (firstDash === 1) {
-                    result = result.substring(0, result.length - 11); //XXX
-                    result += '</td>';
-                    firstDash = 0;
-                }
-                result += '<tr><td width="35%"></td><td width="65%" cellpadding=".1em">'+objectHtml+'</td>';
-            }
+
             });
            result += '</table></div>';
         };
 		while (nodesToRender.length > 0) {
            var node = nodesToRender.pop();
-		   result += n.rdf2h.render(n.graph, node, n.context, n.rdf2h.afterPrepareIndex);
+		   result += n.rdf2h.render(n.graph, node, n.context);
 		}
         return result;
     }'''
