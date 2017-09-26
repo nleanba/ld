@@ -64,14 +64,6 @@ r2hp:fallback r2h:before <header> .
         </div>'''
   ];
     r2h:template [
-        r2h:context zzm:HtmlHead;
-        r2h:mustache '''
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-            {{{:render . zzm:HtmlTitle}}}
-        '''
-   ];
-    r2h:template [
         r2h:context zzm:HtmlTitle;
         r2h:mustache '''
           <title>Resource {{.}}</title>
