@@ -135,8 +135,8 @@ r2hp:fallback r2h:before <header> .
                         objectHtml = '<a href="'+objectLink+'" title="'+object+'">'+object+'</a>';
                     } else {
                         objectHtml = '<a href="'+objectLink+'" title="'+object+
-                            '" style="color:#000000;text-decoration:none;font-size:1em;">'+
-                            objectPrefix+'<b>'+object+'</b></a>';
+                            '" style="color:#000000;text-decoration:none;font-size:3em;">'+
+                            objectPrefix+'<b style="font-size:2em">'+object+'</b></a>';
                     }
                 }
             } else {
@@ -151,8 +151,8 @@ r2hp:fallback r2h:before <header> .
             }
             predicatesArray.push(predicate);
             result += '<tr><td width="35%" cellpadding=".1em" valign="top" id="sticky">'+
-                '<a href="'+link+'" title="'+link+'" style="color:#000000;text-decoration:none";font-size:1em;>'+
-                prefix+'<b>'+predicate+'</b></a></td><td width="65%" cellpadding=".1em">'+
+                '<a href="'+link+'" title="'+link+'" style="color:#000000;text-decoration:none";font-size:3em;>'+
+                prefix+'<b style="font-size:2em">'+predicate+'</b></a></td><td width="65%" cellpadding=".1em">'+
                 objectHtml+'<hr /></td>';
             });
            result += '</table></div>';
