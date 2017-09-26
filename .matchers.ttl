@@ -10,6 +10,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix r2hp: <http://rdf2h.github.io/2015/rdf2h-points/> .
 
+r2hp:fallback r2h:before <header> .
 
 <myheader> a r2h:Matcher ;
   r2h:template [
