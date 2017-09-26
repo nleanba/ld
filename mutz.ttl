@@ -5,4 +5,6 @@
   s:category <train>;
   s:manufacturer <stadler>;
   s:isVariantOf <kiss>;
+  s:image <https://www.bls.ch/-/media/bls/bilder/fahren/unterwegs/bahn/flotte/mutz-4fach-traktion-winter.jpg>;
+  s:description <Der MUTZ (Moderner, Universeller TriebZug), bietet mit seinen je 335 Sitzplätzen und bequemen Stehplatzzonen mehr Platz und Komfort. Klimatisierung, Boden- und Seitenwandheizung, moderne optische und akustische Fahrgastinformation, Videoüberwachung, 2 Toiletten (eine davon rollstuhlgängig) sowie Rollstuhlplätze in beiden Wagenklassen zeichnen die Fahrzeuge aus. Und Geschwindigkeiten von bis zu 160 km/h garantieren attraktive Fahrzeiten. Es können bis zu 4 Triebzüge aneinandergekoppelt werden (maximal 1340 Sitzplätze).>;
 .
