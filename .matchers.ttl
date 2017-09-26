@@ -142,9 +142,9 @@ r2hp:fallback r2h:before <header> .
                 }
             }
             predicatesArray.push(predicate);
-            result += '<tr><td width="35%" cellpadding=".1em" valign="top" id="sticky">'+
+            result += '<tr><td width="35%" cellpadding="3px" valign="top" id="sticky">'+
                 '<a href="'+link+'" title="'+link+'" style="color:#000000;text-decoration:none";font-size:3em;>'+
-                prefix+'<b style="font-size:2em">'+predicate+'</b></a></td><td width="65%" cellpadding=".1em">'+
+                prefix+'<b style="font-size:2em">'+predicate+'</b></a></td><td width="65%" cellpadding="3px">'+
                 objectHtml+'<hr /></td>';
             });
            result += '</table></div>';
