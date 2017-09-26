@@ -10,9 +10,8 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix r2hp: <http://rdf2h.github.io/2015/rdf2h-points/> .
 
-r2hp:fallback r2h:before <header> .
 
-<header> a r2h:Matcher ;
+<myheader> a r2h:Matcher ;
   r2h:template [
     r2h:context r2h:Default;
     r2h:mustache '''
@@ -22,9 +21,9 @@ r2hp:fallback r2h:before <header> .
       </div>
          {{{:continue}}}'''
   ];
-  r2h:before <rdfTypes>.
+  r2h:before <myrdfTypes>.
   
-<rdfTypes> a r2h:Matcher ;
+<myrdfTypes> a r2h:Matcher ;
   r2h:triplePattern [
     r2h:subject r2h:this;
     r2h:predicate rdf:type;
@@ -39,9 +38,9 @@ r2hp:fallback r2h:before <header> .
       </div>
          {{{:continue}}}'''
   ];
-  r2h:before <catchall>.
+  r2h:before <mycatchall>.
 
-<catchall> a r2h:Matcher ;
+<mycatchall> a r2h:Matcher ;
   r2h:template [
     rdfs:comment '''Renders a full page, delegating to matchers in the default 
     context for the body, and to zzm:HtmlHead for things like the html title''';
