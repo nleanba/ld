@@ -14,7 +14,8 @@
   r2h:template [
     r2h:context r2h:Default;
     r2h:mustache '''
-      <div style="max-width: 1200px;margin:10px 30px">
+      <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+      <div style="max-width: 1200px;margin:10px 30px;font-family: 'Merriweather', serif;">
       <h2 style="font-size: 1.3em">{{.}}</h2>
       <h1 style="font-size: 3em">{{s:name}}</h1>
       </div>
@@ -44,7 +45,7 @@ r2h:triplePattern [
     r2h:context r2h:Default;
     r2h:mustache '''
       <div style="max-width: 1200px; margin:10px 30px">
-      <p style="font-size: 1.3em">{{s:description}}</p>
+      <p style="font-size: 1.3em;font-family: 'Merriweather', serif;">{{s:description}}</p>
       </div>
       {{{:continue}}}'''
   ];
@@ -54,7 +55,7 @@ r2h:triplePattern [
   r2h:template [
     r2h:context r2h:Default;
     r2h:mustache '''
-    <div style="max-width: 1200px;margin:10px 30px;font-size: 1.3em;text-decoration: none"><table width="100%>
+    <div style="max-width: 1200px;margin:10px 30px;font-size: 1.3em;text-decoration: none;font-family: 'Merriweather', serif;"><table width="100%>
     {{{:continue}}}'''
   ];
   r2h:before <manufacturer>.
