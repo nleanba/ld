@@ -14,7 +14,7 @@
   r2h:template [
     r2h:context r2h:Default;
     r2h:mustache '''
-      <div style="max-width: 1200px;">
+      <div style="max-width: 1200px;margin:10px 30px">
       <h2>{{.}}</h2>
       <h1>{{s:name}}</h1>
       </div>
@@ -48,13 +48,33 @@ r2h:triplePattern [
       </div>
       {{{:continue}}}'''
   ];
-  r2h:before <info>.
+  r2h:before <table-start>.
 
-<info> a r2h:Matcher ;
+<table-start> a r2h:Matcher ;
+  r2h:template [
+    r2h:context r2h:Default;
+    r2h:mustache '''
+    <div style="max-width: 1200px;margin:10px 30px;"><table width="100%>
+    {{{:continue}}}'''
+  ];
+  r2h:before <manufacturer>.
+
+<manufacturer> a r2h:Matcher ;
+r2h:triplePattern [
+    r2h:subject r2h:this;
+    r2h:predicate s:manufacturer;
+  ];
   r2h:template [
     r2h:context r2h:Default;
     r2h:mustache '''
       <div style="max-width: 1200px;margin:10px 30px;"><table width="100%>
       <tr><td width="35%">Hersteller:</td><td width="65%">{{s:manufacturer}}</td></tr>
-      </table></div>'''
+      {{{:continue}}}'''
+  ];
+  r2h:before <table-end>.
+
+<table-end> a r2h:Matcher ;
+  r2h:template [
+    r2h:context r2h:Default;
+    r2h:mustache '''</table></div>'''
   ].
