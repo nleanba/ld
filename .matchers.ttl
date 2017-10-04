@@ -54,7 +54,7 @@ r2h:triplePattern [
   r2h:template [
     r2h:context r2h:Default;
     r2h:mustache '''
-    <div style="max-width: 1200px;margin:10px 30px;font-size: 1.3em"><table width="100%>
+    <div style="max-width: 1200px;margin:10px 30px;font-size: 1.3em;text-decoration: none"><table width="100%>
     {{{:continue}}}'''
   ];
   r2h:before <manufacturer>.
