@@ -30,7 +30,7 @@ r2h:triplePattern [
   r2h:template [
     r2h:context r2h:Default;
     r2h:mustache '''
-      <img src="{{s:image}}" alt="Image of Train" style="max-height:250px;max-width: 1200px;" >
+      <img src="{{s:image}}" alt="Image of Train" style="max-height:250px;max-width: 1200px;margin:10px 30px" >
       {{{:continue}}}'''
   ];
   r2h:before <description>.
@@ -43,7 +43,7 @@ r2h:triplePattern [
   r2h:template [
     r2h:context r2h:Default;
     r2h:mustache '''
-      <div style="max-width: 1200px; margin:30px">
+      <div style="max-width: 1200px; margin:10px 30px">
       <p>{{s:description}}</p>
       </div>
       {{{:continue}}}'''
@@ -54,7 +54,7 @@ r2h:triplePattern [
   r2h:template [
     r2h:context r2h:Default;
     r2h:mustache '''
-      <div style="max-width: 1200px;"><table width="100%>
+      <div style="max-width: 1200px;margin:10px 30px;"><table width="100%>
       <tr><td width="35%">Hersteller:</td><td width="65%">{{s:manufacturer}}</td></tr>
       </table></div>'''
   ].
