@@ -68,7 +68,7 @@ r2h:triplePattern [
     r2h:context r2h:Default;
     r2h:mustache '''
       <div style="max-width: 1200px;margin:10px 30px;"><table width="100%>
-      <tr><td width="35%">Hersteller:</td><td width="65%">{{s:manufacturer}}</td></tr>
+      <tr><td width="35%">Hersteller:</td><td width="65%"><a href="{{s:manufacturer}}">{{s:manufacturer}}</a></td></tr>
       {{{:continue}}}'''
   ];
   r2h:before <table-end>.
