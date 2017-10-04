@@ -15,8 +15,8 @@
     r2h:context r2h:Default;
     r2h:mustache '''
       <div style="max-width: 1200px;margin:10px 30px">
-      <h2>{{.}}</h2>
-      <h1>{{s:name}}</h1>
+      <h2 style="font-size: 1.3em">{{.}}</h2>
+      <h1 style="font-size: 3em">{{s:name}}</h1>
       </div>
       {{{:continue}}}'''
   ];
@@ -44,7 +44,7 @@ r2h:triplePattern [
     r2h:context r2h:Default;
     r2h:mustache '''
       <div style="max-width: 1200px; margin:10px 30px">
-      <p>{{s:description}}</p>
+      <p style="font-size: 1.3em">{{s:description}}</p>
       </div>
       {{{:continue}}}'''
   ];
@@ -54,7 +54,7 @@ r2h:triplePattern [
   r2h:template [
     r2h:context r2h:Default;
     r2h:mustache '''
-    <div style="max-width: 1200px;margin:10px 30px;"><table width="100%>
+    <div style="max-width: 1200px;margin:10px 30px;font-size: 1.3em"><table width="100%>
     {{{:continue}}}'''
   ];
   r2h:before <manufacturer>.
