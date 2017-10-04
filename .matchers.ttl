@@ -15,7 +15,7 @@
     r2h:context r2h:Default;
     r2h:mustache '''
       <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
-      <div style="max-width: 1200px;margin:10px 30px;font-family: 'Merriweather', serif;">
+      <div style="max-width: 1200px;margin:10px 30px;font-family: 'Merriweather', sans-serif;">
       <h2 style="font-size: 1.3em">{{.}}</h2>
       <h1 style="font-size: 3em">{{s:name}}</h1>
       </div>
