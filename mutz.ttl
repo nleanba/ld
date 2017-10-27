@@ -2,6 +2,7 @@
 
 <> a s:ProductModel;
   s:brand "Mutz";
+  s:name "Stadler MUTZ";
   s:category <train>;
   s:manufacturer <stadler>;
   s:isVariantOf <kiss>;

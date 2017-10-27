@@ -16,8 +16,9 @@
     r2h:mustache '''
       <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900" rel="stylesheet">
       <div style="max-width: 1200px;margin:10px 30px;font-family: 'Merriweather', sans-serif;">
-      <h2 style="font-size: 1.3em">{{.}}</h2>
-      <h1 style="font-size: 3em;font-weight: 900">{{s:name}}</h1>
+      <h2 style="font-size: 1.3em">Showing resource: {{.}}</h2>
+      <h1 style="font-size: 3em;font-family: 'Merriweather';font-weight: 900">{{s:name}}</h1>
+      <p style="font-size: 1.3em">This is a {{s:category}}</p>
       </div>
       {{{:continue}}}'''
   ];
@@ -56,6 +57,8 @@ r2h:triplePattern [
     r2h:context r2h:Default;
     r2h:mustache '''
     <div style="max-width: 1200px;margin:10px 30px;font-size: 1.3em;text-decoration: none;font-family: 'Merriweather', serif;"><table width="80%>
+    <tr><td width="35%" cellpadding=".1em" valign="top" id="sticky"></td>
+        <td width="65%" cellpadding=".1em" valign="top" id="sticky"></td></tr><!--Zusaetzliche Tabellenzeile benötigt, weil komischerweise die erste Tabellenzeile nicht funktioniert...-->
     {{{:continue}}}'''
   ];
   r2h:before <manufacturer>.
@@ -72,9 +75,31 @@ r2h:triplePattern [
         <td width="35%" cellpadding=".1em" valign="top" id="sticky">
           Hersteller:
         </td>
-        <td width="65%" cellpadding=".1em">
+        <td width="65%" cellpadding=".1em" valign="top" id="sticky">
           <a href="{{s:manufacturer}}">
             {{s:manufacturer}}
+          </a>
+        </td>
+      </tr>
+      {{{:continue}}}'''
+  ];
+  r2h:before <isVariantOf>.
+
+<isVariantOf> a r2h:Matcher ;
+r2h:triplePattern [
+    r2h:subject r2h:this;
+    r2h:predicate s:isVariantOf;
+  ];
+  r2h:template [
+    r2h:context r2h:Default;
+    r2h:mustache '''
+      <tr>
+        <td width="35%" cellpadding=".1em" valign="top" id="sticky">
+          Grundmodell:
+        </td>
+        <td width="65%" cellpadding=".1em">
+          <a href="{{s:isVariantOf}}">
+            {{s:isVariantOf}}
           </a>
         </td>
       </tr>
