@@ -16,9 +16,8 @@
     r2h:mustache '''
       <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900" rel="stylesheet">
       <div style="max-width: 1200px;margin:10px 30px;font-family: 'Merriweather', sans-serif;">
-      <h2 style="font-size: 1.3em">Showing resource: {{.}}</h2>
-      <h1 style="font-size: 3em;font-family: 'Merriweather';font-weight: 900">{{s:name}}</h1>
-      <p style="font-size: 1.3em">This is a {{s:category}}</p>
+      <h1 style="font-size: 3em;font-weight: 900">{{s:name}}</h1>
+      <span style="font-size: 1.3em">Das ist ein <a href="#"> {{s:category}} </a> </span>
       </div>
       {{{:continue}}}'''
   ];
@@ -32,7 +31,7 @@ r2h:triplePattern [
   r2h:template [
     r2h:context r2h:Default;
     r2h:mustache '''
-      <img src="{{s:image}}" alt="Image of Train" style="max-height:250px;max-width: 1200px;margin:10px 30px" >
+      <img src="{{s:image}}" alt="Bild des Zuges" style="max-height: 250px;max-width: 1200px; margin:10px 30px" >
       {{{:continue}}}'''
   ];
   r2h:before <description>.
